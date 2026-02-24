@@ -1,0 +1,7 @@
+"StorageAccount","ResourceGroup","PublicAccess"
+"stcontosolab345","rg-prod","False"
+"stlab11239","rg-storage-lab","False"
+"stlab12345","NetworkWatcherRG","False"
+"stsecdev26773","rg-security-dev","False"
+"stsecdev85192","rg-security-dev","False"
+"stsecuritylab001","rg-security-lab","False"

@@ -1,0 +1,28 @@
+---
+- name: Validate Azure Storage Security Compliance
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Get storage accounts in resource group
+      command: >
+        az storage account list
+        --resource-group rg-secure-storage-demo
+        --query "[].{name:name, publicAccess:publicNetworkAccess, tls:minimumTlsVersion}"
+        -o json
+      register: storage_output
+
+    - name: Display storage accounts
+      debug:
+        var: storage_output.stdout
+
+    - name: Fail if any storage account allows public access
+      fail:
+        msg: "Compliance FAILED: Public access is enabled on a storage account."
+      when: "'Enabled' in storage_output.stdout"
+
+    - name: Success message
+      debug:
+        msg: "Compliance PASSED: All storage accounts are secure."
+      when: "'Enabled' not in storage_output.stdout"
