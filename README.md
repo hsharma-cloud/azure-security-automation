@@ -87,3 +87,97 @@ This project implements a layered cloud security workflow:
 - Defense in depth
 - Automated compliance validation
 - Infrastructure as Code security
+---
+
+## 🏗️ Azure Landing Zone Architecture
+
+This project implements a hub-spoke landing zone in Microsoft Azure using PowerShell and Infrastructure-as-Code principles.
+
+### 🎯 Design Goals
+
+- Centralized networking
+- Environment isolation (Prod vs Dev)
+- Secure and scalable architecture
+- Cost-aware resource management
+
+---
+
+## 🌐 Network Topology
+
+                vnet-hub (rg-platform-network)
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+ vnet-prod (rg-landingzone-prod)   vnet-dev (rg-landingzone-dev)
+
+---
+
+## 🧱 Resource Groups
+
+| Resource Group | Purpose |
+|---------------|--------|
+| rg-platform-network | Hub network & shared services |
+| rg-platform-security | Security & governance |
+| rg-landingzone-prod | Production workloads |
+| rg-landingzone-dev | Development workloads |
+
+---
+
+## 🌐 Virtual Networks
+
+| VNet | Role | Address Space |
+|------|------|--------------|
+| vnet-hub | Central hub | 10.100.0.0/16 |
+| vnet-prod | Production spoke | 10.110.0.0/16 |
+| vnet-dev | Development spoke | 10.120.0.0/16 |
+
+---
+
+## 🔐 Hub Subnets
+
+| Subnet | Purpose |
+|-------|--------|
+| AzureFirewallSubnet | Reserved for Azure Firewall |
+| snet-shared | Shared services & private endpoints |
+
+---
+
+## 🔗 VNet Peering
+
+| Connection | Purpose |
+|-----------|--------|
+| hub ↔ prod | Secure production connectivity |
+| hub ↔ dev | Secure development connectivity |
+
+---
+
+## 💰 Cost Governance
+
+During this lab:
+
+- Removed unused VMs and Bastion
+- Verified no NSG flow logs enabled
+- Confirmed Network Watcher is free
+- Ensured no hidden charges
+
+---
+
+## 🛠️ Tools Used
+
+- Azure PowerShell
+- Azure CLI
+- Terraform
+- Bicep
+- Ansible
+- Python
+
+---
+
+## 📌 Key Outcomes
+
+✔️ Built enterprise hub-spoke network  
+✔️ Implemented environment isolation  
+✔️ Practiced cost governance  
+✔️ Automated Azure infrastructure  
+
+This project demonstrates foundational skills required for Azure Cloud and Security Engineering roles.
