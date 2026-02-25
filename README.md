@@ -48,3 +48,42 @@ azure-security-automation/
 - Security Automation with PowerShell
 - Compliance Validation with Ansible
 - Security Reporting with Python
+
+
+---
+
+## Architecture Overview
+
+This project implements a layered cloud security workflow:
+
+1. **PowerShell Audit**
+   - Scans Azure storage accounts
+   - Detects public access risks
+   - Exports findings to CSV
+
+2. **Terraform Deployment**
+   - Deploys secure storage accounts
+   - Disables public network access
+   - Enforces TLS 1.2
+
+3. **Bicep Deployment**
+   - Azure-native secure resource deployment
+   - Applies governance tags
+   - Enforces secure defaults
+
+4. **Ansible Validation**
+   - Verifies compliance settings
+   - Ensures public access is disabled
+   - Confirms TLS enforcement
+
+5. **Python Reporting**
+   - Reads audit results
+   - Generates compliance summary
+   - Simulates security dashboard output
+
+### Security Principles Demonstrated
+
+- Zero Trust (no public access)
+- Defense in depth
+- Automated compliance validation
+- Infrastructure as Code security
