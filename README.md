@@ -15,20 +15,23 @@ This project demonstrates an end-to-end Azure security automation workflow using
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 azure-security-automation/
-├── powershell/
-│   ├── audit.ps1
-│   └── storage_audit_report.csv
-├── terraform/
-│   └── main.tf
-├── bicep/
-│   └── storage.bicep
-├── ansible/
-│   └── validate.yml
-├── python/
-│   └── report.py
+
+├── README.md  
+├── terraform/  
+│   └── main.tf  
+├── powershell/  
+│   ├── audit.ps1  
+│   └── storage_audit_report.csv  
+├── ansible/  
+│   └── validate.yml  
+├── bicep/  
+│   └── storage.bicep  
+├── python/  
+│   └── report.py  
+└── docs/
 
 ---
 
